@@ -1,3 +1,7 @@
+/* Home screen of the App
+ * Project Delta Fountains
+ */
+
 package com.deltafountains;
 
 import android.app.Activity;

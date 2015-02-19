@@ -1,3 +1,7 @@
+/* Functions screen (preprogrammed movements) of the App
+ * Project Delta Fountains
+ */
+
 package com.deltafountains;
 
 import android.app.Activity;
