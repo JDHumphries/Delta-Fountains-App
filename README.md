@@ -8,3 +8,7 @@ Feb. 18, 2015
  - Main app added to repository
  - Preliminary Help page made
  - A list of functions was created
+
+Feb. 19, 2015
+ - Controls displays bearings
+ - general commenting for easier reading
