@@ -12,3 +12,6 @@ Feb. 18, 2015
 Feb. 19, 2015
  - Controls displays bearings
  - general commenting for easier reading
+ - added background colours
+ - changed help button symbol
+ - changed joystick colours
