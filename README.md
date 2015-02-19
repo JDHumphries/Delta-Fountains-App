@@ -15,3 +15,4 @@ Feb. 19, 2015
  - added background colours
  - changed help button symbol
  - changed joystick colours
+ - fixed background colour of Functions activity
