@@ -11,7 +11,7 @@ Feb. 18, 2015
  - Repository created
  - Main app added to repository
  - Preliminary Help page made
- - A list of functions was created
+ - A list of functions were created
 
 Feb. 19, 2015
  - Controls displays bearings
