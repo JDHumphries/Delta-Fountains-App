@@ -93,12 +93,9 @@ public class Functions extends Activity {
 */	
     public void onClick(View view) {
         try {
-            EditText et = (EditText) findViewById(R.id.EditText1);
-            String str = et.getText().toString();
             PrintWriter out = new PrintWriter(new BufferedWriter(
                     new OutputStreamWriter(socket.getOutputStream())),
                     true);
-            out.println(str);
             out.flush();
             BufferedReader  in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String read = in.readLine();
