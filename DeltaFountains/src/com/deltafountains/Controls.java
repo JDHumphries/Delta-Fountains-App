@@ -4,6 +4,16 @@
 
 package com.deltafountains;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,10 +33,17 @@ public class Controls extends Activity {
 	
 	JoyStickClass js;
 	
+	private Socket socket;
+
+    private static final int SERVERPORT = 43000;
+    private static final String SERVER_IP = "192.168.0.1";
+	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controls);
 
+        new Thread(new ClientThread()).start();
+        
         xAxisValue = (TextView)findViewById(R.id.textView1);
         yAxisValue = (TextView)findViewById(R.id.textView2);
         angleValue = (TextView)findViewById(R.id.textView3);
@@ -49,44 +66,91 @@ public class Controls extends Activity {
 				js.drawStick(arg1);
 				if(arg1.getAction() == MotionEvent.ACTION_DOWN
 						|| arg1.getAction() == MotionEvent.ACTION_MOVE) {
-					xAxisValue.setText("X : " + String.valueOf(js.getX()));
-					yAxisValue.setText("Y : " + String.valueOf(js.getY()));
-					angleValue.setText("Angle : " + String.valueOf(js.getAngle()));
-					distanceValue.setText("Distance : " + String.valueOf(js.getDistance()));
+					xAxisValue.setText("X: " + String.valueOf(js.getX()));
+					yAxisValue.setText("Y: " + String.valueOf(js.getY()));
+					angleValue.setText("Angle: " + String.valueOf(js.getAngle()));
+					distanceValue.setText("Distance: " + String.valueOf(js.getDistance()));
 					
 					//Get the position the user has moved the joystick to
 					int direction = js.get8Direction();
 					if(direction == JoyStickClass.STICK_UP) { //North
-						directionValue.setText("Direction : North");
+						directionValue.setText("Direction: North");
+						sendSignal("North");
 					} else if(direction == JoyStickClass.STICK_UPRIGHT) { //North-East
-						directionValue.setText("Direction : North-East");
+						directionValue.setText("Direction: North-East");
+						sendSignal("North-East");
 					} else if(direction == JoyStickClass.STICK_RIGHT) { //East
-						directionValue.setText("Direction : East");
+						directionValue.setText("Direction: East");
+						sendSignal("South");
 					} else if(direction == JoyStickClass.STICK_DOWNRIGHT) { //South-East
-						directionValue.setText("Direction : South-East");
+						directionValue.setText("Direction: South-East");
+						sendSignal("South-East");
 					} else if(direction == JoyStickClass.STICK_DOWN) { //South
-						directionValue.setText("Direction : South");
+						directionValue.setText("Direction: South");
+						sendSignal("South");
 					} else if(direction == JoyStickClass.STICK_DOWNLEFT) { //South-West
-						directionValue.setText("Direction : South-West");
+						directionValue.setText("Direction: South-West");
+						sendSignal("South-West");
 					} else if(direction == JoyStickClass.STICK_LEFT) { //West
-						directionValue.setText("Direction : West");
+						directionValue.setText("Direction: West");
+						sendSignal("West");
 					} else if(direction == JoyStickClass.STICK_UPLEFT) { //North-West
-						directionValue.setText("Direction : North-West");
+						directionValue.setText("Direction: North-West");
+						sendSignal("North-West");
 					} else if(direction == JoyStickClass.STICK_NONE) { //Centre
-						directionValue.setText("Direction : Centre");
+						directionValue.setText("Direction: Centre");
+						sendSignal("Centre");
 					}
 				} else if(arg1.getAction() == MotionEvent.ACTION_UP) {
-					xAxisValue.setText("X :");
-					yAxisValue.setText("Y :");
-					angleValue.setText("Angle :");
-					distanceValue.setText("Distance :");
-					directionValue.setText("Direction :");
+					xAxisValue.setText("X: ");
+					yAxisValue.setText("Y: ");
+					angleValue.setText("Angle: ");
+					distanceValue.setText("Distance: ");
+					directionValue.setText("Direction: ");
 				}
 				return true;
 			}
         });
     }
+    
+    void sendSignal(String bearing){
+    	try{
+    		PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
+    		out.println(bearing);
+    		out.flush();
+    		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+    		String read = in.readLine();
+    		System.out.println("MSG: " + read);
+    	} catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    	
+    }
+    
+    class ClientThread implements Runnable {
+
+        @Override
+        public void run() {
+
+            try {
+                InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
+                socket = new Socket(serverAddr, SERVERPORT);
+
+            } catch (UnknownHostException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        }
+
+    }
+    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
