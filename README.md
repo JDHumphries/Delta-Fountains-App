@@ -23,3 +23,8 @@ Feb. 19, 2015
 
 Feb. 23, 2015
  - updated readme 
+
+Mar. 15, 2015
+ - Created Socket Server in functions.java
+ - Created Socket Server in controls.java
+ - Removed test button and text field in activity_main.xml
