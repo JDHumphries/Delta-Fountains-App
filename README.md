@@ -33,3 +33,4 @@ Mar. 15, 2015
 Mar. 21, 2015
  - Functions.java connects and sends data to the server
  - Added test server file; EchoServer.java
+ - Controls.java connects and sends data to the server
