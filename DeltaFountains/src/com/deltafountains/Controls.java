@@ -24,6 +24,7 @@ import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Controls extends Activity {
 
@@ -34,9 +35,11 @@ public class Controls extends Activity {
 	JoyStickClass js;
 	
 	private Socket socket;
-
-    private static final int SERVERPORT = 43000;
-    private static final String SERVER_IP = "192.168.0.27";
+	private static final int SERVERPORT = 43000;
+	private static final String SERVER_IP = "192.168.0.27";
+	private static String bearing = null;
+    PrintWriter out = null;
+    BufferedReader in = null;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,31 +78,31 @@ public class Controls extends Activity {
 					int direction = js.get8Direction();
 					if(direction == JoyStickClass.STICK_UP) { //North
 						directionValue.setText("Direction: North");
-						sendSignal("North");
+						out.println("north");
 					} else if(direction == JoyStickClass.STICK_UPRIGHT) { //North-East
 						directionValue.setText("Direction: North-East");
-						sendSignal("North-East");
+						out.println("northEast");
 					} else if(direction == JoyStickClass.STICK_RIGHT) { //East
 						directionValue.setText("Direction: East");
-						sendSignal("South");
+						out.println("east");
 					} else if(direction == JoyStickClass.STICK_DOWNRIGHT) { //South-East
 						directionValue.setText("Direction: South-East");
-						sendSignal("South-East");
+						out.println("southEast");
 					} else if(direction == JoyStickClass.STICK_DOWN) { //South
 						directionValue.setText("Direction: South");
-						sendSignal("South");
+						out.println("south");
 					} else if(direction == JoyStickClass.STICK_DOWNLEFT) { //South-West
 						directionValue.setText("Direction: South-West");
-						sendSignal("South-West");
+						out.println("southWest");
 					} else if(direction == JoyStickClass.STICK_LEFT) { //West
 						directionValue.setText("Direction: West");
-						sendSignal("West");
+						out.println("west");
 					} else if(direction == JoyStickClass.STICK_UPLEFT) { //North-West
 						directionValue.setText("Direction: North-West");
-						sendSignal("North-West");
+						out.println("northWest");
 					} else if(direction == JoyStickClass.STICK_NONE) { //Centre
 						directionValue.setText("Direction: Centre");
-						sendSignal("Centre");
+						out.println("centre");
 					}
 				} else if(arg1.getAction() == MotionEvent.ACTION_UP) {
 					xAxisValue.setText("X: ");
@@ -113,45 +116,32 @@ public class Controls extends Activity {
         });
     }
     
-    void sendSignal(String bearing){
-    	try{
-    		PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
-    		out.println(bearing);
-    		out.flush();
-    		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-    		String read = in.readLine();
-    		System.out.println("MSG: " + read);
-    	} catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    class ClientThread implements Runnable {
+	class ClientThread implements Runnable {
         @Override
         public void run() {
             try {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
                 socket = new Socket(serverAddr, SERVERPORT);
+                out = new PrintWriter(socket.getOutputStream(), true);
+                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             } catch (UnknownHostException e1) {
                 e1.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Don't know host: " + SERVER_IP, Toast.LENGTH_SHORT).show();
             } catch (IOException e1) {
                 e1.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Couldn't get IO for the connection to: " + SERVER_IP, Toast.LENGTH_SHORT).show();
             }
         }
-    }
+	}
     
-	@Override
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.controls, menu);
 		return true;
 	}
 
-	@Override
+    @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
