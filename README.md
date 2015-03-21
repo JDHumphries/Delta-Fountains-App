@@ -34,3 +34,4 @@ Mar. 21, 2015
  - Functions.java connects and sends data to the server
  - Added test server file; EchoServer.java
  - Controls.java connects and sends data to the server
+ - Added onDestroy to close socket without crashing server
