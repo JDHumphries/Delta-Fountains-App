@@ -29,3 +29,7 @@ Mar. 15, 2015
  - Created Socket Server in controls.java
  - Removed test button and text field in activity_main.xml
  - Fixed error in functions.java
+
+Mar. 21, 2015
+ - Functions.java connects and sends data to the server
+ - Added test server file; EchoServer.java
