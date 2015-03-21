@@ -77,6 +77,14 @@ public class Functions extends Activity {
         }
     }
 	
+	protected void onDestroy(){
+		try {
+			socket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
