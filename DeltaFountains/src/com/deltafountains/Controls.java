@@ -36,7 +36,7 @@ public class Controls extends Activity {
 	private Socket socket;
 
     private static final int SERVERPORT = 43000;
-    private static final String SERVER_IP = "192.168.0.1";
+    private static final String SERVER_IP = "192.168.0.27";
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,27 +128,20 @@ public class Controls extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-    	
     }
     
     class ClientThread implements Runnable {
-
         @Override
         public void run() {
-
             try {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
                 socket = new Socket(serverAddr, SERVERPORT);
-
             } catch (UnknownHostException e1) {
                 e1.printStackTrace();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-
         }
-
     }
     
 	@Override

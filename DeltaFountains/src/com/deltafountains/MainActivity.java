@@ -4,6 +4,11 @@
 
 package com.deltafountains;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
