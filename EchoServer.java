@@ -8,7 +8,7 @@ public class EchoServer
     ServerSocket serverSocket = null; 
 
     try { 
-         serverSocket = new ServerSocket(43001); 
+         serverSocket = new ServerSocket(43000); 
         } 
     catch (IOException e) 
         { 
