@@ -35,3 +35,6 @@ Mar. 21, 2015
  - Added test server file; EchoServer.java
  - Controls.java connects and sends data to the server
  - Added onDestroy to close socket without crashing server
+
+Mar. 23, 2015
+ - Added Android Studio version of the project
