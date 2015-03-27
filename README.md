@@ -41,3 +41,4 @@ Mar. 23, 2015
 
 Mar. 26, 2015
  - Eclipse version doesn't crash when closing activities
+ - After some syncing errors, the Android Studio version is up and doesn't scrash when closing activities
