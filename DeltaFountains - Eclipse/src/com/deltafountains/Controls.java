@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,6 +38,8 @@ public class Controls extends Activity {
 	private static final String SERVER_IP = "192.168.0.27";
     PrintWriter out = null;
     BufferedReader in = null;
+    
+    ImageButton back;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +114,19 @@ public class Controls extends Activity {
 				return true;
 			}
         });
+	    
+        back = (ImageButton) findViewById(R.id.backButtonControls);
+        back.setOnClickListener(new View.OnClickListener(){ //Second button goes to the second activity
+        	@Override
+        	public void onClick(View v){
+        		try {
+        			socket.close();
+        		} catch (IOException e) {
+        			e.printStackTrace();
+        		}
+        		finish();
+        	}
+        });
     }
     
 	class ClientThread implements Runnable {
@@ -131,13 +147,13 @@ public class Controls extends Activity {
         }
 	}
     
-	protected void onDestroy(){
+	/*protected void onDestroy(){
 		try {
 			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {

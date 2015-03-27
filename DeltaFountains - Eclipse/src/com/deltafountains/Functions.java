@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -38,6 +39,8 @@ public class Functions extends Activity {
     PrintWriter out = null;
     BufferedReader in = null;
 	
+    ImageButton back;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,6 +56,19 @@ public class Functions extends Activity {
         	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         		value = position;
         		out.println(value);
+        	}
+        });
+        
+		back = (ImageButton) findViewById(R.id.backButtonFunctions);
+        back.setOnClickListener(new View.OnClickListener(){ //Second button goes to the second activity
+        	@Override
+        	public void onClick(View v){
+        		try {
+        			socket.close();
+        		} catch (IOException e) {
+        			e.printStackTrace();
+        		}
+        		finish();
         	}
         });
 	}
@@ -77,13 +93,13 @@ public class Functions extends Activity {
         }
     }
 	
-	protected void onDestroy(){
+	/*protected void onDestroy(){
 		try {
 			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
