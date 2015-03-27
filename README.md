@@ -38,3 +38,6 @@ Mar. 21, 2015
 
 Mar. 23, 2015
  - Added Android Studio version of the project
+
+Mar. 26, 2015
+ - Eclipse version doesn't crash when closing activities
