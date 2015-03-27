@@ -8,13 +8,25 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class Support extends Activity {
 
+	ImageButton back;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_support);
+		
+		back = (ImageButton) findViewById(R.id.backButtonSupport);
+        back.setOnClickListener(new View.OnClickListener(){ //Second button goes to the second activity
+        	@Override
+        	public void onClick(View v){
+        		finish();
+        	}
+        });
 	}
 
 	@Override

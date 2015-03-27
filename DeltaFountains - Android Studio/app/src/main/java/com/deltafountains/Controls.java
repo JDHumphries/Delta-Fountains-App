@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import android.annotation.SuppressLint;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,9 +35,11 @@ public class Controls extends Activity {
 	
 	private Socket socket;
 	private static final int SERVERPORT = 43000;
-	private static final String SERVER_IP = "10.110.42.123";
+	private static final String SERVER_IP = "192.168.0.27";
     PrintWriter out = null;
     BufferedReader in = null;
+    
+    ImageButton back;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,6 @@ public class Controls extends Activity {
 	    js.setMinimumDistance(50);
 	    
 	    layout_joystick.setOnTouchListener(new OnTouchListener() {
-			@SuppressLint("ClickableViewAccessibility")
 			public boolean onTouch(View arg0, MotionEvent arg1) {
 				js.drawStick(arg1);
 				if(arg1.getAction() == MotionEvent.ACTION_DOWN
@@ -79,28 +81,28 @@ public class Controls extends Activity {
 						out.println("north");
 					} else if(direction == JoyStickClass.STICK_UPRIGHT) { //North-East
 						directionValue.setText("Direction: North-East");
-						out.println("northeast");
+						out.println("northEast");
 					} else if(direction == JoyStickClass.STICK_RIGHT) { //East
 						directionValue.setText("Direction: East");
 						out.println("east");
 					} else if(direction == JoyStickClass.STICK_DOWNRIGHT) { //South-East
 						directionValue.setText("Direction: South-East");
-						out.println("southeast");
+						out.println("southEast");
 					} else if(direction == JoyStickClass.STICK_DOWN) { //South
 						directionValue.setText("Direction: South");
 						out.println("south");
 					} else if(direction == JoyStickClass.STICK_DOWNLEFT) { //South-West
 						directionValue.setText("Direction: South-West");
-						out.println("southwest");
+						out.println("southWest");
 					} else if(direction == JoyStickClass.STICK_LEFT) { //West
 						directionValue.setText("Direction: West");
 						out.println("west");
 					} else if(direction == JoyStickClass.STICK_UPLEFT) { //North-West
 						directionValue.setText("Direction: North-West");
-						out.println("northwest");
+						out.println("northWest");
 					} else if(direction == JoyStickClass.STICK_NONE) { //Centre
 						directionValue.setText("Direction: Centre");
-						out.println("neutral");
+						out.println("centre");
 					}
 				} else if(arg1.getAction() == MotionEvent.ACTION_UP) {
 					xAxisValue.setText("X: ");
@@ -111,6 +113,19 @@ public class Controls extends Activity {
 				}
 				return true;
 			}
+        });
+	    
+        back = (ImageButton) findViewById(R.id.backButtonControls);
+        back.setOnClickListener(new View.OnClickListener(){ //Second button goes to the second activity
+        	@Override
+        	public void onClick(View v){
+        		try {
+        			socket.close();
+        		} catch (IOException e) {
+        			e.printStackTrace();
+        		}
+        		finish();
+        	}
         });
     }
     
@@ -132,13 +147,13 @@ public class Controls extends Activity {
         }
 	}
     
-	protected void onDestroy(){
+	/*protected void onDestroy(){
 		try {
 			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {

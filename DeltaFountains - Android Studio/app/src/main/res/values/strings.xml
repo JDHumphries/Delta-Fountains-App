@@ -9,13 +9,13 @@
     <string name="functions">Functions</string>
     <string name="support">Support</string>
 
-    <!-- CONTROLS -->
+    <!--CONTROLS -->
     <string name="title_activity_controls">Controls</string>
-    <string name="x_field">X</string>
-    <string name="y_field">Y</string>
-    <string name="angle_field">Angle</string>
-    <string name="dist_field">Distance</string>
-    <string name="dir_field">Direction</string>
+    <string name="xValue">X:</string>
+    <string name="yValue">Y:</string>
+    <string name="angle">Angle:</string>
+    <string name="dir">Direction:</string>
+    <string name="dis">Distance:</string>
     
     <!-- FUNCTIONS -->
     <string name="title_activity_functions">Functions</string>
@@ -23,8 +23,8 @@
     <!-- SUPPORT -->
     <string name="title_activity_support">Support</string>
     <string name="help">Help</string>
-    <string name="controls_help">Controls - Takes you to the manual control</string>
-    <string name="functions_help">Functions - Takes you to fountain patterns</string>
+    <string name="conHelp">Controls - Takes you to the manual control</string>
+    <string name="funHelp">Functions - Takes you to fountain patterns</string>
     <string name="clw">CLW - Clockwise</string>
     <string name="cclw">CCLW - Counter Clockwise</string>
     <string name="ns">N/S - North to South</string>

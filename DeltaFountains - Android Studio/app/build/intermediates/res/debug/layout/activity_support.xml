@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView1"
-        android:text="@string/controls_help"
+        android:text="@string/conHelp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView2"
-        android:text="@string/functions_help"
+        android:text="@string/funHelp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -74,5 +74,14 @@
         android:text="@string/ew"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
+    <ImageButton
+        android:id="@+id/backButtonSupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/textView7"
+        android:background="#EEB4B4"
+        android:src="@drawable/back_button" />
+
 </RelativeLayout>
-<!-- From: file:/home/Sulphunet/AndroidstudioProjects/DeltaFountains/app/src/main/res/layout/activity_support.xml -->
+<!-- From: file:/E:/Android%20Studio%20Workspace/app/src/main/res/layout/activity_support.xml -->
