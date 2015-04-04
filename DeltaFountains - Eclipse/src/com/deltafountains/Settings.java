@@ -16,7 +16,7 @@ public class Settings extends Activity {
 	private Button set;
 	private EditText ip, port;
 	private TextView currentIP, currentPort;
-	static String ipValue = "192.168.0.12";
+	static String ipValue = "192.168.0.26";
 	static int portValue = 43000;
 	
 	@Override

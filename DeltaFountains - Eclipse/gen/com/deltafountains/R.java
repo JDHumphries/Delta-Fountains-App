@@ -28,7 +28,6 @@ public final class R {
         public static final int image_button=0x7f020003;
         public static final int image_button_bg=0x7f020004;
         public static final int question_mark=0x7f020005;
-        public static final int water_1=0x7f020006;
     }
     public static final class id {
         public static final int action_settings=0x7f080018;
@@ -73,44 +72,43 @@ public final class R {
         public static final int support=0x7f070004;
     }
     public static final class string {
-        public static final int action_settings=0x7f050002;
-        public static final int angle=0x7f050009;
+        public static final int action_settings=0x7f050001;
+        public static final int angle=0x7f050008;
         /**  MAIN 
          */
         public static final int app_name=0x7f050000;
-        public static final int cclw=0x7f050012;
-        public static final int clw=0x7f050011;
-        public static final int conHelp=0x7f05000f;
-        public static final int controls=0x7f050003;
-        public static final int dir=0x7f05000a;
-        public static final int dis=0x7f05000b;
-        public static final int ew=0x7f050014;
-        public static final int funHelp=0x7f050010;
-        public static final int functions=0x7f050004;
-        public static final int hello_world=0x7f050001;
-        public static final int help=0x7f05000e;
-        public static final int ip=0x7f050017;
-        public static final int ip_hint=0x7f050019;
-        public static final int ns=0x7f050013;
-        public static final int p_hint=0x7f05001a;
-        public static final int port=0x7f050018;
-        public static final int set=0x7f05001b;
+        public static final int cclw=0x7f050011;
+        public static final int clw=0x7f050010;
+        public static final int conHelp=0x7f05000e;
+        public static final int controls=0x7f050002;
+        public static final int dir=0x7f050009;
+        public static final int dis=0x7f05000a;
+        public static final int ew=0x7f050013;
+        public static final int funHelp=0x7f05000f;
+        public static final int functions=0x7f050003;
+        public static final int help=0x7f05000d;
+        public static final int ip=0x7f050016;
+        public static final int ip_hint=0x7f050018;
+        public static final int ns=0x7f050012;
+        public static final int p_hint=0x7f050019;
+        public static final int port=0x7f050017;
+        public static final int set=0x7f05001a;
         /**  SETTINGS 
          */
-        public static final int settings=0x7f050016;
-        public static final int support=0x7f050005;
+        public static final int settings=0x7f050015;
+        public static final int support=0x7f050004;
         /**  CONTROLS 
          */
-        public static final int title_activity_controls=0x7f050006;
+        public static final int title_activity_controls=0x7f050005;
         /**  FUNCTIONS 
          */
-        public static final int title_activity_functions=0x7f05000c;
-        public static final int title_activity_settings=0x7f050015;
+        public static final int title_activity_functions=0x7f05000b;
+        public static final int title_activity_settings=0x7f050014;
         /**  SUPPORT 
          */
-        public static final int title_activity_support=0x7f05000d;
-        public static final int xValue=0x7f050007;
-        public static final int yValue=0x7f050008;
+        public static final int title_activity_support=0x7f05000c;
+        public static final int xValue=0x7f050006;
+        public static final int yValue=0x7f050007;
     }
     public static final class style {
         /** 

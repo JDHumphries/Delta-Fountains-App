@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -71,13 +72,13 @@ public class Functions extends Activity {
 	}
 
 	class ClientThread implements Runnable {
-
         @Override
         public void run() {
-
             try {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
-                socket = new Socket(serverAddr, SERVERPORT);
+                socket = new Socket();
+                socket.setSoTimeout(250);
+                socket.connect(new InetSocketAddress(serverAddr, SERVERPORT), 250);
                 out = new PrintWriter(socket.getOutputStream(), true);
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             } catch (UnknownHostException e1) {
