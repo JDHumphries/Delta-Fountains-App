@@ -46,3 +46,6 @@ Mar. 26, 2015
 Apr. 1, 2015
  - Settings..java added for modifying the IP Address and Port Number
  - Activities won't start unless they can connect to the server. This is a temporary fix for crashing
+
+Apr. 4, 2015
+ - Changed value sent to server from joystick
