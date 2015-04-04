@@ -81,28 +81,28 @@ public class Controls extends Activity {
 						out.println("north");
 					} else if(direction == JoyStickClass.STICK_UPRIGHT) { //North-East
 						directionValue.setText("Direction: North-East");
-						out.println("northEast");
+						out.println("northeast");
 					} else if(direction == JoyStickClass.STICK_RIGHT) { //East
 						directionValue.setText("Direction: East");
 						out.println("east");
 					} else if(direction == JoyStickClass.STICK_DOWNRIGHT) { //South-East
 						directionValue.setText("Direction: South-East");
-						out.println("southEast");
+						out.println("southEest");
 					} else if(direction == JoyStickClass.STICK_DOWN) { //South
 						directionValue.setText("Direction: South");
 						out.println("south");
 					} else if(direction == JoyStickClass.STICK_DOWNLEFT) { //South-West
 						directionValue.setText("Direction: South-West");
-						out.println("southWest");
+						out.println("southwest");
 					} else if(direction == JoyStickClass.STICK_LEFT) { //West
 						directionValue.setText("Direction: West");
 						out.println("west");
 					} else if(direction == JoyStickClass.STICK_UPLEFT) { //North-West
 						directionValue.setText("Direction: North-West");
-						out.println("northWest");
+						out.println("northwest");
 					} else if(direction == JoyStickClass.STICK_NONE) { //Centre
 						directionValue.setText("Direction: Centre");
-						out.println("centre");
+						out.println("neutral");
 					}
 				} else if(arg1.getAction() == MotionEvent.ACTION_UP) {
 					xAxisValue.setText("X: ");
@@ -123,6 +123,7 @@ public class Controls extends Activity {
         			socket.close();
         		} catch (IOException e) {
         			e.printStackTrace();
+        			finish();
         		}
         		finish();
         	}
