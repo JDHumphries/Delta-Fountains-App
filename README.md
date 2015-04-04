@@ -50,3 +50,4 @@ Apr. 1, 2015
 Apr. 4, 2015
  - Changed value sent to server from joystick
  - Added timeout to activities that connect to the socket server
+ - Changed project name and brouguht Android Studio version up to speed
