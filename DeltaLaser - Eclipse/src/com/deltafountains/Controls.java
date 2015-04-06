@@ -34,8 +34,8 @@ public class Controls extends Activity {
 	JoyStickClass js;
 	
 	private Socket socket;
-	private final int SERVERPORT = Settings.portValue;
-	private final String SERVER_IP = Settings.ipValue;
+	private final int SERVERPORT = Settings.portValue; //Get Port value from Settings
+	private final String SERVER_IP = Settings.ipValue; //Get IP value from Settings
     PrintWriter out = null;
     BufferedReader in = null;
     
@@ -45,7 +45,7 @@ public class Controls extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controls);
 
-        new Thread(new ClientThread()).start();
+        new Thread(new ClientThread()).start(); //Connect to the server
         
         xAxisValue = (TextView)findViewById(R.id.textView1);
         yAxisValue = (TextView)findViewById(R.id.textView2);
@@ -137,7 +137,7 @@ public class Controls extends Activity {
             try {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
                 socket = new Socket();
-                socket.setSoTimeout(250);
+                socket.setSoTimeout(250); //Timeout if can't connect to the server
                 socket.connect(new InetSocketAddress(serverAddr, SERVERPORT), 250);
                 out = new PrintWriter(socket.getOutputStream(), true);
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
