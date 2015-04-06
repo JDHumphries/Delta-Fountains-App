@@ -4,7 +4,7 @@ import java.io.*;
 public class EchoServer { 
  public static void main(String[] args) throws IOException { 
     ServerSocket serverSocket = null; 
-    int port = 43000;  //Max 65535
+    int port = XXXXX;  //Max 65535
 
     try { 
          serverSocket = new ServerSocket(port); 
