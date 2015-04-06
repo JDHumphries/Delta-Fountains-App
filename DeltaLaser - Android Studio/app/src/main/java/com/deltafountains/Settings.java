@@ -53,7 +53,7 @@ public class Settings extends Activity {
 					currentPort.setText("Current Port: " + portValue);
 				}catch (Exception e){
 					e.printStackTrace();
-					Toast.makeText(getApplicationContext(), "New IP Addres and Port NOT saved", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "New IP Address and Port NOT saved", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
