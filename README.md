@@ -51,3 +51,8 @@ Apr. 4, 2015
  - Changed value sent to server from joystick
  - Added timeout to activities that connect to the socket server
  - Changed project name and brouguht Android Studio version up to speed
+
+Apr. 6, 2015
+ - Changed colour of Settings.java
+ - East is not spelled "Eest"
+ - Added Landscape mode for the main and controls xml files

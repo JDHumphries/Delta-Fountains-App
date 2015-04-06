@@ -28,6 +28,10 @@
     <string name="cclw">CCLW - Counter Clockwise</string>
     <string name="ns">N/S - North to South</string>
     <string name="ew">E/W - East to West</string>
+    <string name="how_to">If the Controls or Functions button opens up the next screen, then goes back immediately, 
+        you are not connected to the server. Ensure the server is running. Connect to the server with your device,
+        and enter the IP Address and Port number being used (IP = 192.168.0.1, Port = 43000 by default) in the
+        Settings screen</string>
     <string name="title_activity_settings">Settings</string>
     
     <!-- SETTINGS -->
@@ -37,5 +41,7 @@
     <string name="ip_hint">192.168.0.1</string>
     <string name="p_hint">43000</string>
     <string name="set">Set</string>
+    <string name="cip">Current IP</string>
+    <string name="cport">Current Port</string>
 
 </resources>

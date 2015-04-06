@@ -88,7 +88,7 @@ public class Controls extends Activity {
 						out.println("east");
 					} else if(direction == JoyStickClass.STICK_DOWNRIGHT) { //South-East
 						directionValue.setText("Direction: South-East");
-						out.println("southEest");
+						out.println("southeast");
 					} else if(direction == JoyStickClass.STICK_DOWN) { //South
 						directionValue.setText("Direction: South");
 						out.println("south");

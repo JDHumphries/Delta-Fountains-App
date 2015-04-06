@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ade999"
+    android:background="#52CCA3"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -16,7 +16,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
-        android:background="#ade999"
+        android:background="#52CCA3"
         android:src="@drawable/back_button" />
 
     <Button
@@ -87,7 +87,7 @@
         android:layout_alignStart="@+id/textView1"
         android:layout_marginTop="40dp"
         android:layout_toStartOf="@+id/editText1"
-        android:text=""
+        android:text="@string/cip"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -97,7 +97,7 @@
         android:layout_alignEnd="@+id/current_ip"
         android:layout_alignStart="@+id/current_ip"
         android:layout_below="@+id/current_ip"
-        android:text=""
+        android:text="@string/cport"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

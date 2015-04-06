@@ -30,11 +30,11 @@ public final class R {
         public static final int question_mark=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f080018;
+        public static final int action_settings=0x7f080019;
         public static final int backButtonControls=0x7f080007;
         public static final int backButtonFunctions=0x7f080009;
         public static final int backButtonSettings=0x7f08000f;
-        public static final int backButtonSupport=0x7f080017;
+        public static final int backButtonSupport=0x7f080018;
         public static final int buttons=0x7f080008;
         public static final int controlsButton=0x7f08000e;
         public static final int current_ip=0x7f080013;
@@ -47,7 +47,7 @@ public final class R {
         public static final int listView=0x7f08000a;
         public static final int questionImageButton=0x7f08000b;
         public static final int setButton=0x7f080010;
-        public static final int settings=0x7f080019;
+        public static final int settings=0x7f08001a;
         public static final int settingsButton=0x7f08000c;
         public static final int textView1=0x7f080001;
         public static final int textView2=0x7f080002;
@@ -56,6 +56,7 @@ public final class R {
         public static final int textView5=0x7f080005;
         public static final int textView6=0x7f080015;
         public static final int textView7=0x7f080016;
+        public static final int textView8=0x7f080017;
     }
     public static final class layout {
         public static final int activity_controls=0x7f030000;
@@ -78,24 +79,27 @@ public final class R {
          */
         public static final int app_name=0x7f050000;
         public static final int cclw=0x7f050011;
+        public static final int cip=0x7f05001c;
         public static final int clw=0x7f050010;
         public static final int conHelp=0x7f05000e;
         public static final int controls=0x7f050002;
+        public static final int cport=0x7f05001d;
         public static final int dir=0x7f050009;
         public static final int dis=0x7f05000a;
         public static final int ew=0x7f050013;
         public static final int funHelp=0x7f05000f;
         public static final int functions=0x7f050003;
         public static final int help=0x7f05000d;
-        public static final int ip=0x7f050016;
-        public static final int ip_hint=0x7f050018;
+        public static final int how_to=0x7f050014;
+        public static final int ip=0x7f050017;
+        public static final int ip_hint=0x7f050019;
         public static final int ns=0x7f050012;
-        public static final int p_hint=0x7f050019;
-        public static final int port=0x7f050017;
-        public static final int set=0x7f05001a;
+        public static final int p_hint=0x7f05001a;
+        public static final int port=0x7f050018;
+        public static final int set=0x7f05001b;
         /**  SETTINGS 
          */
-        public static final int settings=0x7f050015;
+        public static final int settings=0x7f050016;
         public static final int support=0x7f050004;
         /**  CONTROLS 
          */
@@ -103,7 +107,7 @@ public final class R {
         /**  FUNCTIONS 
          */
         public static final int title_activity_functions=0x7f05000b;
-        public static final int title_activity_settings=0x7f050014;
+        public static final int title_activity_settings=0x7f050015;
         /**  SUPPORT 
          */
         public static final int title_activity_support=0x7f05000c;
